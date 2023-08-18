@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 import "../styles/card.css";
-import singers from "../../src/data.js";
+import { useState } from "react";
 
-const {name, song, album} = singers;
+const Card = ({ singers }) => {
+  const [name, setName] = useState(singers);
 
-const Card = () => {
   return (
-    <div>
-      <section className="card-container">
-        <p className="name">{name}</p>
-        <p className="song">{song}</p>
-        <p className="album">{album}</p>
-      </section>
+    <div className="card-container">
+      {singers.map((singer, index) => (
+        <section className="card-data" key={index}>
+          <p className="name">{singer.name}</p>
+          <p className="song">{singer.song}</p>
+          <p className="album">{singer.album}</p>
+        </section>
+      ))}
     </div>
   );
-}
+};
 
 export default Card;

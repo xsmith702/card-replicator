@@ -13,6 +13,11 @@ const singers = [
         name:  "Céline Dion",
         song: "O Holy Night",
         album: "These Are Special Times"
+    },
+    {
+        name:  "Brenda Lee",
+        song: "Rockin' Around the Christmas Tree",
+        album: "Merry Christmas from Brenda Lee"
     }
 ];
 

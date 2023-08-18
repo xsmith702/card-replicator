@@ -1,19 +1,29 @@
 import './App.css';
 import Card  from './components/Card';
 import singers from "./data.js";
-import { useState } from 'react';
-
+import { useEffect } from 'react';
+ 
 function App() {
-  const [copiedContent, setCopiedContent] = useState([]);
-
-  const handleCopy = () => {
-    setCopiedContent(prevContent => [...prevContent, <Card />]);
-  }
+  const newArr = singers;
+  //empty array means that the useEffect function and all the logic inside will only run once, on first render
+  useEffect(()=>{
+    for(const singer of newArr){
+      singer.date = "2023"
+    }
+  },[])
 
   return (
     <div className="App">
-      <Card singers={singers} />
-      <button onClick={handleCopy}>Copy</button>
+      {newArr.map((singer, index)=> (
+        <Card 
+        singer={singer}
+        index={index}
+        />
+      ))}
+      
+      {/* <Card 
+        singer={{name:'bob',song:'bob',album:'ob'}}
+      /> */}
     </div>
   );
 }
